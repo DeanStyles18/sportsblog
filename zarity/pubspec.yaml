@@ -1,0 +1,44 @@
+name: zarity
+description: "A new Flutter project for a blog app."
+publish_to: 'none' # Prevent accidental publishing
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Firebase dependencies
+  firebase_core: ^3.8.0 # Required for Firebase initialization
+  firebase_analytics: ^11.3.5 # Firebase Analytics
+  cloud_firestore: ^5.5.0 # Firebase Firestore for storing blog data
+  firebase_dynamic_links: ^6.0.10 # For deep linking
+  url_strategy: ^0.3.0
+  firebase_database: ^11.1.6
+  shimmer: ^3.0.0
+
+  # State management (Choose one or more as needed)
+  provider: ^6.1.2 # Popular for state management
+
+  # UI/UX dependencies
+
+  # Routing and Navigation
+
+  # Utilities
+  http: ^1.2.2 # For making HTTP requests (optional for REST)
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Add any assets (e.g., images, icons) here
+  assets:
+    - assets/image.png  # Specify the path to the image in the assets folder
