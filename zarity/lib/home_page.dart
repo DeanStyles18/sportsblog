@@ -40,14 +40,12 @@ class _HomePageState extends State<HomePage> {
         future: _blogPosts,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            // Display an error message if fetching fails
             return Center(
               child: Text('Error: ${snapshot.error}'),
             );
           }
 
           if (!snapshot.hasData) {
-            // Show a loading image if data hasn't been loaded yet
             return Container(
               color: Color(0xff0F2940),
               child: Center(
@@ -63,13 +61,11 @@ class _HomePageState extends State<HomePage> {
 
           List<BlogPost> blogPosts = snapshot.data!;
 
-          // Store the original list of blog posts when they are first fetched
           if (_originalBlogPosts.isEmpty) {
             _originalBlogPosts = blogPosts;
             _filteredBlogPosts = blogPosts;
           }
 
-          // Determine which list of blog posts to display based on search state
           List<BlogPost> displayPosts =
               _isSearching ? _filteredBlogPosts : blogPosts;
 
@@ -108,7 +104,6 @@ class _HomePageState extends State<HomePage> {
                                 setState(() {
                                   _isSearching = !_isSearching;
                                   if (!_isSearching) {
-                                    
                                     _searchController.clear();
                                     _filteredBlogPosts = _originalBlogPosts;
                                   }
@@ -127,12 +122,11 @@ class _HomePageState extends State<HomePage> {
                           controller: _searchController,
                           onChanged: (query) {
                             setState(() {
-                              // Filter blog posts based on the search query
                               _filterBlogPosts(query);
                             });
                           },
                           decoration: InputDecoration(
-                            hintText: 'Search by title...',
+                            hintText: 'Search by title...(min 3 characters)',
                             filled: true,
                             fillColor: Colors.white,
                             prefixIcon: const Icon(Icons.search),
@@ -158,6 +152,17 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          if (displayPosts.isEmpty)
+                            Center(
+                              child: Text(
+                                'No results found',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
+                            ),
                           ..._buildRows(displayPosts),
                         ],
                       ),
@@ -178,7 +183,7 @@ class _HomePageState extends State<HomePage> {
 
     for (int i = 0; i < totalPosts; i++) {
       if ((i + 1) % 5 == 0) {
-        
+        // Create a new row for every 5th post
         rows.add(
           Row(
             children: [
@@ -190,7 +195,7 @@ class _HomePageState extends State<HomePage> {
         );
         rows.add(SizedBox(height: 20));
       } else {
-        // Add two blog posts side by side in a row
+        
         rows.add(
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -212,7 +217,7 @@ class _HomePageState extends State<HomePage> {
           ),
         );
         rows.add(SizedBox(height: 20));
-        i++; 
+        i++;
       }
     }
     return rows;
@@ -221,13 +226,13 @@ class _HomePageState extends State<HomePage> {
   void _filterBlogPosts(String query) {
     setState(() {
       if (query.length >= 3) {
-        // Filter posts if the search query is at least 3 characters long
+       
         _filteredBlogPosts = _originalBlogPosts
             .where((post) =>
                 post.title.toLowerCase().contains(query.toLowerCase()))
             .toList();
       } else {
-        // Reset filtered posts if the query is shorter than 3 characters
+       
         _filteredBlogPosts = _originalBlogPosts;
       }
     });
