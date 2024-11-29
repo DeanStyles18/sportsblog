@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                                 setState(() {
                                   _isSearching = !_isSearching;
                                   if (!_isSearching) {
-                                    // Clear the search field and reset the filtered posts
+                                    
                                     _searchController.clear();
                                     _filteredBlogPosts = _originalBlogPosts;
                                   }
@@ -178,7 +178,7 @@ class _HomePageState extends State<HomePage> {
 
     for (int i = 0; i < totalPosts; i++) {
       if ((i + 1) % 5 == 0) {
-        // Create a new row for every 5th post
+        
         rows.add(
           Row(
             children: [
@@ -212,7 +212,7 @@ class _HomePageState extends State<HomePage> {
           ),
         );
         rows.add(SizedBox(height: 20));
-        i++; // Skip the next post since it's already displayed in the current row
+        i++; 
       }
     }
     return rows;
