@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // Import to use Clipboard
+import 'package:flutter/services.dart'; 
 import 'firebase_service.dart';
 import 'blog_post.dart';
 
@@ -214,11 +214,11 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(
-                              0xff0F2940), // Black background for the button
+                              0xff0F2940), 
                           padding: const EdgeInsets.symmetric(
                               horizontal: 16,
                               vertical:
-                                  10), // Add padding to make the button rectangular
+                                  10), 
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(
                                 4), // Slight rounding for rectangle
