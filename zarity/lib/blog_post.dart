@@ -4,7 +4,7 @@ class BlogPost {
   final String summary;
   final String content;
   final String imageURL;
-  final String? deeplink; // Adding deepLink as an optional String
+  final String? deeplink; 
 
   BlogPost({
     required this.id,
@@ -12,7 +12,7 @@ class BlogPost {
     required this.summary,
     required this.content,
     required this.imageURL,
-    this.deeplink, // Allowing deepLink to be optional
+    this.deeplink, 
   });
 
   // To create a BlogPost from Firestore document data
@@ -28,7 +28,7 @@ class BlogPost {
           '', // To assign a default value if 'content' is not found
       imageURL: data['imageURL'] ??
           '', // To assign a default value if 'imageURL' is not found
-      deeplink: data['deeplink'], // Assign the 'deepLink' if available
+      deeplink: data['deeplink'], 
     );
   }
 }
