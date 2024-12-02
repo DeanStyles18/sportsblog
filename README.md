@@ -13,4 +13,5 @@ https://zarity.page.link/Sportsblog/serena(any id)
 With this deep link, users can access the desired blog. This feature is implemented as per the assignment's requirements.
 
 Note:
+I have submitted the assignment on internshala app before the deadline on 29th Nov. Check the time of my github folder to confirm my timing.
 I completed this project within a night, so there might be some limitations in terms of animations or advanced UI design. Despite that, the app is working well for me. Please reach out if you encounter any errors or issues, as it functions fine on my end.
